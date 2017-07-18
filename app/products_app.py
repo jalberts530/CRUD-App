@@ -1,4 +1,17 @@
-print("Hello")
+print("----------------------------------")
+print("PRODUCTS APPLICATION")
+print("----------------------------------")
+print("Welcome User")
+
+print("There are 21 Products in the database. Please select an operation:")
+print("\n")
+print("operation | description" )
+print("--------- | -----------")
+print("'List'    | Display a list of product identifiers and names.")
+print("'Show'    | Show information abouta product.")
+print("'Create'  | Add a new produt.")
+print("'Update'  | Edit an exisiting product.")
+print("'Destroy' | Delete an exisiting product")
 
 
 
