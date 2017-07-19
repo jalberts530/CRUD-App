@@ -21,14 +21,29 @@ print("\n")
 chosen_operation = input("Input Operation: ")
 print(chosen_operation)
 
-print("\n")
-print("List")
-print("THERE ARE 20 PRODUCTS:")
+if chosen_operation.title() == "List":
+    print("LISTING PRODUCTS")
+elif chosen_operation.title() == "Show":
+    print("SHOWING A PRODUCT")
+elif chosen_operation.title() == "Create":
+    print("CREATING A PRODUCT")
+elif chosen_operation.title() == "Update":
+    print("UPDATING A PRODUCT")
+elif chosen_operation.title() == "Destroy":
+    print("DESTROYING A PRODUCT")
+else:
+    print("OOPS. PLEASE CHOOSE ONE OF THE RECOGNIZED OPERATIONS.")
 
-with open(csv_file_path,"r") as csv_file:
-    reader = csv.DictReader(csv_file)
-    for row in reader:
-        print(" + " + str(row))
+
+
+#print("\n")
+#print("List")
+#print("THERE ARE 20 PRODUCTS:")
+
+#with open(csv_file_path,"r") as csv_file:
+    #reader = csv.DictReader(csv_file)
+    #for row in reader:
+        #print(" + " + str(row))
 
 
 #while True:
