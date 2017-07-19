@@ -1,7 +1,6 @@
 import csv
 csv_file_path = "data/products.csv"
 
-
 print("----------------------------------")
 print("PRODUCTS APPLICATION")
 print("----------------------------------")
@@ -22,7 +21,13 @@ chosen_operation = input("Input Operation: ")
 print(chosen_operation)
 
 if chosen_operation.title() == "List":
-    print("LISTING PRODUCTS")
+    print("\n")
+    print("List")
+    print("THERE ARE 20 PRODUCTS:")
+    with open(csv_file_path,"r") as csv_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            print(" + " + str(row))
 elif chosen_operation.title() == "Show":
     print("SHOWING A PRODUCT")
 elif chosen_operation.title() == "Create":
@@ -33,18 +38,3 @@ elif chosen_operation.title() == "Destroy":
     print("DESTROYING A PRODUCT")
 else:
     print("OOPS. PLEASE CHOOSE ONE OF THE RECOGNIZED OPERATIONS.")
-
-
-
-#print("\n")
-#print("List")
-#print("THERE ARE 20 PRODUCTS:")
-
-#with open(csv_file_path,"r") as csv_file:
-    #reader = csv.DictReader(csv_file)
-    #for row in reader:
-        #print(" + " + str(row))
-
-
-#while True:
-    #operation = input ("Please input a valid operation")
