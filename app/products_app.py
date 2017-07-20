@@ -1,5 +1,29 @@
 import csv
 csv_file_path = "data/products.csv"
+csv_file_path_2 = "data/other_products.csv"
+
+products = []
+
+#List File
+def read_file():
+    with open(csv_file_path,"r") as csv_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            print(" + ", dict(row))
+
+#Read & Append
+with open(csv_file_path,"r") as csv_file:
+    reader = csv.DictReader(csv_file)
+    for row in reader:
+        products.append(row)
+
+#Write File
+def write_file():
+    with open(csv_file_path_2, "w") as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=["id", "name", "aisle", "department", "price"])
+        writer.writeheader() # uses fieldnames set above
+        for product in products:
+            writer.writerow(product)
 
 #Menu Greeting & Inputs
 print("----------------------------------")
@@ -22,28 +46,25 @@ chosen_operation = input("Input Operation: ")
 chosen_operation = chosen_operation.title()
 print(chosen_operation)
 
-# Product List
-products = []
+
 
 #Menu Definitions
-def list_products(): #List Definition
+def list_products(): #List Definition #TODO Troubleshoot
         print("\n")
         print("List")
         print("THERE ARE 20 PRODUCTS:")
-        with open(csv_file_path,"r") as csv_file:
-            reader = csv.DictReader(csv_file)
-            for row in reader:
-                print(" + ", dict(row))
+        read_file()
+
 def show_product(): #Show Definition
-    with open(csv_file_path,"r") as csv_file:
-        reader = csv.DictReader(csv_file)
-        for row in reader:
-            products.append(row)
+    #print("SHOWING A PRODUCT")
     print("There are " + str(len(products)) + " Products")
+
 def create_product(): #Create Definition
-    print("CREATING A PRODUCT")
+    write_file()
+
 def update_product(): #Update Definition
     print("UPDATING A PRODUCT")
+
 def destroy_product(): #Destroy Definition
     print("DESTROYING A PRODUCT")
 
