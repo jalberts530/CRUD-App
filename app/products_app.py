@@ -1,6 +1,4 @@
 import csv
-csv_file_path = "data/products.csv"
-csv_file_path_2 = "data/other_products.csv"
 
 products = []
 
@@ -19,7 +17,7 @@ print("PRODUCTS APPLICATION")
 print("----------------------------------")
 print("Welcome User!")
 print("\n")
-print("There are 20 Products in the database. Please choose an operation:" )
+print("There are " + str(len(products)) + " Products in the database. Please choose an operation:" )
 print("\n")
 print("    operation | description" )
 print("    --------- | -----------")
@@ -36,7 +34,8 @@ print(chosen_operation)
 
 #Menu Definitions
 def list_products():
-    print("LISTING PRODUCTS")
+    for product in products:
+        print(" + ", dict(product))
 
 def show_product():
     print("SHOWING A PRODUCT")
@@ -72,7 +71,6 @@ elif chosen_operation == "Destroy": destroy_product()
 else: print("OOPS. PLEASE CHOOSE ONE OF THE RECOGNIZED OPERATIONS.")
 
 # OVERWRITING INVENTORY CSV FILE
-
 with open(csv_file_path_2, "w") as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=["id","name","aisle","department","price"])
     writer.writeheader() # uses fieldnames set above
