@@ -11,6 +11,11 @@ with open(csv_file_path, "r") as csv_file:
     for row in reader:
         products.append(row)
 
+#Product Lookup
+def lookup_product_by_id(product_id):
+    matching_products = [product for product in products if product["id"] == product_id]
+    return matching_products[0] # because the line above gives us a list and we want to return a single item
+
 #Menu Greeting & Inputs
 print("----------------------------------")
 print("PRODUCTS APPLICATION")
@@ -32,13 +37,17 @@ chosen_operation = input("Input Operation: ")
 chosen_operation = chosen_operation.title()
 print(chosen_operation)
 
+
 #Menu Definitions
 def list_products():
     for product in products:
         print(" + ", dict(product))
 
 def show_product():
-    print("SHOWING A PRODUCT")
+    product_id = input("Please input a valid product identifier. ")
+    for product in products:
+        product_show = lookup_product_by_id(product_id)
+    print("SHOW PRODUCT HERE: ", dict(product_show))
 
 def create_product():
     print("CREATING A PRODUCT")
