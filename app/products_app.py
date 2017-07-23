@@ -67,6 +67,29 @@ def create_product():
 
 def update_product():
     print("UPDATING A PRODUCT")
+    product_id = input("Please input a valid product identifier. ")
+    if int(product_id) <= len(products):
+        for product in products:
+            product_show = lookup_product_by_id(product_id)
+        print("SHOW PRODUCT HERE: ", dict(product_show))
+
+        product_name = input("name is:")
+        product_aisle = input("aisle is:")
+        product_department = input("department is:")
+        product_price = input("price is:")
+        updated_product = {
+            "id": int(product_id),
+            "name": product_name,
+            "aisle": product_aisle,
+            "department": product_department,
+            "price": product_price
+            }
+        print("UPDATED PRODUCT IS: ", updated_product)
+
+
+    else:
+        print("ERROR, INVALID PRODUCT INDENTIFIER")
+
 
 def destroy_product():
     print("DESTROYING A PRODUCT")
