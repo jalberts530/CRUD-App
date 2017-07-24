@@ -38,7 +38,7 @@ print("    'List'    | Display a list of product identifiers and names.")
 print("    'Show'    | Show information abouta product.")
 print("    'Create'  | Add a new product.")
 print("    'Update'  | Edit an exisiting product.")
-print("    'Destroy' | Delete an exisiting product")
+print("    'Destroy' | Delete an exisiting product.")
 
 print("\n")
 chosen_operation = input("Input Operation: ")
