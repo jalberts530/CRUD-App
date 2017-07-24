@@ -37,7 +37,6 @@ chosen_operation = input("Input Operation: ")
 chosen_operation = chosen_operation.title()
 print(chosen_operation)
 
-
 #Menu Definitions
 def list_products():
     for product in products:
@@ -67,37 +66,56 @@ def create_product():
 
 def update_product():
     print("UPDATING A PRODUCT")
-    product_id = input("Please input a valid product identifier. ")
+    update_product_id = input("Please input a valid product identifier. ")
+    product = [i for i in products if i["id"]==update_id]
     if int(product_id) <= len(products):
         for product in products:
             product_show = lookup_product_by_id(product_id)
         print("SHOW PRODUCT HERE: ", dict(product_show))
 
-        product_name = input("name is:")
-        product_aisle = input("aisle is:")
-        product_department = input("department is:")
-        product_price = input("price is:")
+        if product:
+        product = product[0]
+        print("Please Product Identifier")
+        update_product_name = input("Name is "+ product["name"]+ ". How should we change name to?: ")
+        update_product_aisle = input ("Aisle is "+ product["aisle"]+". How should we change aisle to?: ")
+        update_product_department= input("Department is "+ product["department"]+". How should we change department to?: ")
+        update_product_price = input("Price is "+ "$"+product["price"]+ ". How should we change price to?: ")
         updated_product = {
-            "id": int(product_id),
-            "name": product_name,
-            "aisle": product_aisle,
-            "department": product_department,
-            "price": product_price
-            }
-        print("UPDATED PRODUCT IS: ", updated_product)
-        #del (product_id)
-        products.replace(row) #Need Help
-
-
+        "name":update_name,
+        "aisle":update_aisle,
+        "department":update_department,
+        "price":update_price
+        }
+        print("We will update from ",dict(product)," to ",dict(updated_product) )
+        confirmation = input("Please type Y if its okay to update: ")
+        confirmation = confirmation.capitalize()
+        if confirmation == "Y":
+            product["name"] = update_name
+            product["aisle"]= update_aisle
+            product["department"]=update_department
+            product["price"]=update_price
+            print("Updated product")
+        else:
+            print("Try again")
     else:
-        print("ERROR, INVALID PRODUCT INDENTIFIER")
+        print("Not a valid ID, please try again")
 
 
 def destroy_product():
     print("DESTROYING A PRODUCT")
-    product_id = input("Please input a valid product identifier. ")
-    del(product_id)
-    print("PRODUCT HAS BEEN REMOVED")
+    destroy_product = input("Please input a valid product identifier. ")
+    product = [i for i in products if i["id"] == destroy_product]
+    if product:
+        product = product[0]
+        print("I am destroying the following product: ")
+        print(dict(product))
+        confirmation = input("Please type Y if its okay to destroy: ")
+        confirmation = confirmation.capitalize()
+        if confirmation == "Y":
+            del products[products.index(product)]
+            print("Updated product list")
+        else:
+            print("Try again")
 
 #Menu If Statements
 if chosen_operation == "List": list_products()
