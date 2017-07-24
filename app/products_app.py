@@ -67,13 +67,13 @@ def create_product():
 def update_product():
     print("UPDATING A PRODUCT")
     update_product_id = input("Please input a valid product identifier. ")
-    product = [i for i in products if i["id"]==update_id]
-    if int(product_id) <= len(products):
-        for product in products:
-            product_show = lookup_product_by_id(product_id)
-        print("SHOW PRODUCT HERE: ", dict(product_show))
+    product = [i for i in products if i["id"]==update_product_id]
+    #if int(product_id) <= len(products):
+    #    for product in products:
+    #        product_show = lookup_product_by_id(product_id)
+    #    print("SHOW PRODUCT HERE: ", dict(product_show))
 
-        if product:
+    if product:
         product = product[0]
         print("Please Product Identifier")
         update_product_name = input("Name is "+ product["name"]+ ". How should we change name to?: ")
@@ -81,24 +81,24 @@ def update_product():
         update_product_department= input("Department is "+ product["department"]+". How should we change department to?: ")
         update_product_price = input("Price is "+ "$"+product["price"]+ ". How should we change price to?: ")
         updated_product = {
-        "name":update_name,
-        "aisle":update_aisle,
-        "department":update_department,
-        "price":update_price
+        "name":update_product_name,
+        "aisle":update_product_aisle,
+        "department":update_product_department,
+        "price":update_product_price
         }
         print("We will update from ",dict(product)," to ",dict(updated_product) )
         confirmation = input("Please type Y if its okay to update: ")
         confirmation = confirmation.capitalize()
         if confirmation == "Y":
-            product["name"] = update_name
-            product["aisle"]= update_aisle
-            product["department"]=update_department
-            product["price"]=update_price
+            product["name"] = update_product_name
+            product["aisle"]= update_product_aisle
+            product["department"]=update_product_department
+            product["price"]=update_product_price
             print("Updated product")
         else:
             print("Try again")
     else:
-        print("Not a valid ID, please try again")
+            print("Not a valid ID, please try again")
 
 
 def destroy_product():
