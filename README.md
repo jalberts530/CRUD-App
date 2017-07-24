@@ -7,7 +7,7 @@ This CRUD application allows the user to manage their inventory of products.  Th
 Download the source code:
 
 ```shell
-git clone remote_clone_https://github.com/jalberts530/CRUD-App
+git clone https://github.com/jalberts530/CRUD-App.git
 cd desktop/my_folder/class_6/app/products_app.py
 ```
 
