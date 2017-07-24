@@ -68,25 +68,20 @@ def update_product():
     print("UPDATING A PRODUCT")
     update_product_id = input("Please input a valid product identifier. ")
     product = [i for i in products if i["id"]==update_product_id]
-    #if int(product_id) <= len(products):
-    #    for product in products:
-    #        product_show = lookup_product_by_id(product_id)
-    #    print("SHOW PRODUCT HERE: ", dict(product_show))
-
     if product:
         product = product[0]
-        print("Please Product Identifier")
-        update_product_name = input("Name is "+ product["name"]+ ". How should we change name to?: ")
-        update_product_aisle = input ("Aisle is "+ product["aisle"]+". How should we change aisle to?: ")
-        update_product_department= input("Department is "+ product["department"]+". How should we change department to?: ")
-        update_product_price = input("Price is "+ "$"+product["price"]+ ". How should we change price to?: ")
+        print(dict(product))
+        update_product_name = input("What should we change the NAME to?: ")
+        update_product_aisle = input ("What should we change the AISLE to?: ")
+        update_product_department= input("What should we change DEPARTMENT to?: ")
+        update_product_price = input("What should we change PRICE to?: ")
         updated_product = {
         "name":update_product_name,
         "aisle":update_product_aisle,
         "department":update_product_department,
         "price":update_product_price
         }
-        print("We will update from ",dict(product)," to ",dict(updated_product) )
+        print("We will update to ",dict(updated_product) )
         confirmation = input("Please type Y if its okay to update: ")
         confirmation = confirmation.capitalize()
         if confirmation == "Y":
