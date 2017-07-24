@@ -16,6 +16,14 @@ def lookup_product_by_id(product_id):
     matching_products = [product for product in products if product["id"] == product_id]
     return matching_products[0] # because the line above gives us a list and we want to return a single item
 
+def valid_id(id):
+    ids = []
+    for product in products:
+        ids.append(product["id"])
+    while(id not in ids):
+        id = input("WRONG PRODUCT INDENTIFIER! Please try again: ")
+    return id
+
 #Menu Greeting & Inputs
 print("----------------------------------")
 print("PRODUCTS APPLICATION")
@@ -44,9 +52,11 @@ def list_products():
 
 def show_product():
     product_id = input("Please input a valid product identifier. ")
+    product_id = valid_id(product_id)
     for product in products:
         product_show = lookup_product_by_id(product_id)
     print("SHOW PRODUCT HERE: ", dict(product_show))
+
 
 def create_product():
     print("CREATING A PRODUCT")
