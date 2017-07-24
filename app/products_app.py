@@ -3,7 +3,7 @@ import csv
 products = []
 
 csv_file_path = "data/products.csv"
-csv_file_path_2 = "data/other_products.csv"
+#csv_file_path_2 = "data/other_products.csv"
 
 # READ PRODUCTS CSV
 with open(csv_file_path, "r") as csv_file:
@@ -121,7 +121,7 @@ elif chosen_operation == "Destroy": destroy_product()
 else: print("OOPS. PLEASE CHOOSE ONE OF THE RECOGNIZED OPERATIONS.")
 
 # OVERWRITING INVENTORY CSV FILE
-with open(csv_file_path_2, "w", newline='') as csv_file:
+with open(csv_file_path, "w", newline='') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=["id","name","aisle","department","price"])
     writer.writeheader() # uses fieldnames set above
     for product in products:
