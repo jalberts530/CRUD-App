@@ -1,6 +1,6 @@
 # Jason Alberts CRUD Application
 
-This application allows the user to Create, Read, Update and Destroy (CRUD) pre-arranged product data in a CSV file
+This CRUD application allows the user to manage their inventory of products.  The following operations; Create, Read, Update and Destroy (CRUD) can be used to view or modify the product inventory data set.  The raw data is stored in a CSV file called products.csv.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Download the source code:
 
 ```shell
 git clone remote_clone_https://github.com/jalberts530/CRUD-App
-cd some/path/to/repo/
+cd desktop/my_folder/class_6/app/products_app.py
 ```
 
 Finally, download the [example `products.csv` file](https://raw.githubusercontent.com/prof-rossetti/nyu-info-2335-70-201706/master/projects/crud-app/products.csv) and save it as `data/products.csv`.
