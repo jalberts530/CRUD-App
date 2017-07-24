@@ -8,7 +8,7 @@ Download the source code:
 
 ```shell
 git clone https://github.com/jalberts530/CRUD-App.git
-cd desktop/my_folder/class_6/app/products_app.py
+cd desktop/CRUD-App/app/products_app.py
 ```
 
 Finally, download the [example `products.csv` file](https://raw.githubusercontent.com/prof-rossetti/nyu-info-2335-70-201706/master/projects/crud-app/products.csv) and save it as `data/products.csv`.
