@@ -1,13 +1,13 @@
-# Name of Your App
+# Jason Alberts CRUD Application
 
-Some description or other info about what the app does.
+This application allows the user to Create, Read, Update and Destroy (CRUD) pre-arranged product data in a CSV file
 
 ## Installation
 
 Download the source code:
 
 ```shell
-git clone remote_clone_address_of_your_repo_here
+git clone remote_clone_https://github.com/jalberts530/CRUD-App
 cd some/path/to/repo/
 ```
 

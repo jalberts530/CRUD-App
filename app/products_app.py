@@ -85,6 +85,8 @@ def update_product():
             "price": product_price
             }
         print("UPDATED PRODUCT IS: ", updated_product)
+        #del (product_id)
+        products.replace(row) #Need Help
 
 
     else:
@@ -93,6 +95,9 @@ def update_product():
 
 def destroy_product():
     print("DESTROYING A PRODUCT")
+    product_id = input("Please input a valid product identifier. ")
+    del(product_id)
+    print("PRODUCT HAS BEEN REMOVED")
 
 #Menu If Statements
 if chosen_operation == "List": list_products()
@@ -103,7 +108,7 @@ elif chosen_operation == "Destroy": destroy_product()
 else: print("OOPS. PLEASE CHOOSE ONE OF THE RECOGNIZED OPERATIONS.")
 
 # OVERWRITING INVENTORY CSV FILE
-with open(csv_file_path_2, "w") as csv_file:
+with open(csv_file_path_2, "w", newline='') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=["id","name","aisle","department","price"])
     writer.writeheader() # uses fieldnames set above
     for product in products:
